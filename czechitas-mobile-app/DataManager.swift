@@ -46,17 +46,9 @@ enum APIRouter: URLRequestConvertible {
         let urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
         
         return try URLEncoding.default.encode(urlRequest, with : result.parameters)
-        
-        /*
-        if let URL = URL(string: "https://czechitas-app.herokuapp.com:443/api/v1") {
-            let URLRequest = NSMutableURLRequest(url: URL)
-            return URLRequest
-        }
-        return NSMutableURLRequest()*/
     }
     
     }
-    
 
 class APIManager {
     static let sharedInstance = APIManager()
@@ -71,8 +63,4 @@ class APIManager {
                 }
         }
     }
-    
-    
-    
-    
 }

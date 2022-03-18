@@ -12,39 +12,31 @@ import SVProgressHUD
 
 class Model : BaseViewController {
     static var sharedInstance = Model()
-    
     var allCourses = [Course]()
     var categories = [Category]()
     
-    
-    
     override func viewDidLoad() {
-        //checkReachibility()
-    
+        checkReachibility()
     }
     
-    /*
     func reachabilityChanged(_ note: Notification) {
-        
         let reachability = note.object as! Reachability
         
         if reachability.isReachable() {
             if reachability.isReachableViaWiFi() {
                 print("Reachable via WiFi")
                 
-                
             } else {
                 print("Reachable via Cellular")
-                
             }
         } else {
             print("Network not reachable")
             self.createAlert2("Chyba", message : "Nie ste pripojeny k netu")
             SVProgressHUD.dismiss()
         }
-    } */
+    }
     
-    /*
+    
     func checkReachibility() {
         do {
             try reachability?.startNotifier()
@@ -61,8 +53,8 @@ class Model : BaseViewController {
             return
             
         }
-        */
-        /*
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(Model.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
         do{
             try reachability?.startNotifier()
@@ -70,7 +62,7 @@ class Model : BaseViewController {
         }catch{
             print("could not start reachability notifier")
         }
-    }*/
+    }
         
     
         

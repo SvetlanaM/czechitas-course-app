@@ -114,11 +114,6 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
         
         let convertedDate = convertToDate((course.courseStartDate), endDate: (course.courseEndDate))
         createEvent(eventStore, title: course.title, startDate: convertedDate.0, endDate: convertedDate.1)
-        
-        
-        
-        
-        
     }
     
     func convertToDate(_ startDate : String, endDate : String) -> (Date, Date) {
@@ -132,27 +127,18 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
     func getAllEvents(_ eventStore : EKEventStore) -> Bool {
         let oneMonthAgo = Date(timeIntervalSinceNow: -90*24*3600)
         let oneMonthAfter = Date(timeIntervalSinceNow: +90*24*3600)
-        
         let predicate = eventStore.predicateForEvents(withStart: oneMonthAgo, end: oneMonthAfter, calendars: nil)
-        
         let events = eventStore.events(matching: predicate)
-        
         return events.contains(where: {$0.title == course.title})
         
     }
     
     func createEvent(_ eventStore : EKEventStore, title : String, startDate : Date, endDate : Date) {
-        
         eventStore.requestAccess(to: .event, completion: { granted, error in
-            
         })
         
-        
         if !getAllEvents(eventStore) {
-            
-            
             let event = EKEvent(eventStore : eventStore)
-            
             event.title = title
             event.startDate = startDate
             event.endDate = endDate
@@ -171,10 +157,7 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
         }
     }
     
-    
-    
     @IBAction func buttonClick(_ sender: AnyObject) {
-        
         let url = getCourseState()
         
         if url != "None" || url != ""{
@@ -185,11 +168,6 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
             self.navigationController?.pushViewController(webController, animated: true)
             webController.urlRequest = request
         }
-        
-            
-            
-            
-        
     }
     
     func sendEmail() {
@@ -232,8 +210,6 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
     
     
     func tableView(_ courseTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
         return courseDetails.count
     }
     
@@ -247,15 +223,11 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
             
         } else {
             if let cell = courseTableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoTableViewCell {
-                
-                
                 cell.infoCourse.text = courseDetails[indexPath.row].description
                 cell.imageCourse.image = UIImage(named: courseDetails[indexPath.row].icon)
                 cell.selectionStyle = .none
-                
                 return cell
             }
-            
         }
         return UITableViewCell()
         
@@ -265,8 +237,6 @@ class CourseDetailViewController: BaseViewController, UITableViewDelegate, UITab
         if indexPath.row == 4 {
             sendEmail()
         }
-        
-        
     }
     
     // MARK: - MFMailComposerViewController Delegate

@@ -11,45 +11,27 @@ import UIKit
 class FavouriteTableViewController: UITableViewController {
     
     var courses = [[String:Int]]()
-    
     var course  = [Course]()
     var myCourses = [Course]()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        
         self.course = Model.sharedInstance.allCourses
-        
-        
-        
-        
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
-       
-        
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.course = Model.sharedInstance.allCourses
         
         if let existingCourse = Model.sharedInstance.getCourse() {
-            courses = existingCourse
-            
+            courses = existingCourse 
         }
         
         myCourses = []
-        
         addMyCourse()
         tableView.reloadData()
-        
-        
     }
     
     
@@ -82,8 +64,7 @@ class FavouriteTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as? CourseTableViewCell {
-            
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as? CourseTableViewCell {          
             cell.configureCell(myCourses[indexPath.row])
             return cell
         }
@@ -97,13 +78,8 @@ class FavouriteTableViewController: UITableViewController {
         if segue.identifier == "courseDetailSegue" {
             if let vc = segue.destination as? CourseDetailViewController {
                 vc.course = courseDetail
-                vc.hidesBottomBarWhenPushed = true
-                
+                vc.hidesBottomBarWhenPushed = true     
             }
-        }
-        }
-        else {
-            
         }
     }
     
@@ -114,8 +90,6 @@ class FavouriteTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-
 }
 
 

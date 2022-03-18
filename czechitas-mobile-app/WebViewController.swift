@@ -15,21 +15,9 @@ class WebViewController: UIViewController {
     var urlRequest : URLRequest?
     
     override func viewDidLoad() {
-        
-
         super.viewDidLoad()
-        
         SVProgressHUD.show()
         webView.loadRequest(urlRequest!)
         SVProgressHUD.dismiss()
-        
-        
-                
-        
     }
-    
-   
-    
-   
-
 }

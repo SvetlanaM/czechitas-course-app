@@ -11,20 +11,12 @@ class BaseViewController: UIViewController {
         UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: flag, completion: completion)
     }
     
-    
-    
     func createAlert(_ title : String, message : String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title : "OK", style: .default) { (action) in
-            
-            
+        let OKAction = UIAlertAction(title : "OK", style: .default) { (action) in 
         }
-        
-        
         alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated : true, completion: nil)
-        
-        
+        self.presentViewController(alertController, animated : true, completion: nil) 
     }
     
     func createAlert2(_ title : String, message : String) {
@@ -38,15 +30,11 @@ class BaseViewController: UIViewController {
         }
         
         let cancelAction = UIAlertAction(title : "Zrusit", style: .default) { (action) in
-            
-            
         }
         
         alertController.addAction(settingsAction)
         alertController.addAction(cancelAction)
         self.presentViewController(alertController, animated : true, completion: nil)
-        
-        
     }
     
 }

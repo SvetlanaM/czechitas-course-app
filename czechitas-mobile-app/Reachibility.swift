@@ -1,7 +1,7 @@
 import Foundation
 import SystemConfiguration
 
-/*
+
 public class Reachability {
     
     class func isConnectedToNetwork() -> Bool {
@@ -21,9 +21,7 @@ public class Reachability {
         
         let isReachable = flags == .Reachable
         let needsConnection = flags == .ConnectionRequired
-        
         return isReachable && !needsConnection
         
     }
 }
- */

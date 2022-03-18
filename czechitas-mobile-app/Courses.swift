@@ -35,12 +35,7 @@ class Course : NSObject {
     var repeatCourse : String?
     var couches : String?
     
-    
-    
-    
     init?(id : Int, title : String, courseStartDate : String, courseEndDate : String,courseDescription : String, courseCity : String, coursePrice : String) {
-        
-        
         self.id = id
         self.title = title
         self.courseStartDate = String(courseStartDate)
@@ -53,15 +48,8 @@ class Course : NSObject {
             self.courseStartDate = String(describing: Date())
             self.courseEndDate = String(describing: Date())
         }
-        
-        
-        
         super.init()
-        
-        
     }
-    
-   
     
     func convertDate() -> (String, String, String, String) {
         
@@ -79,10 +67,6 @@ class Course : NSObject {
         self.courseEndTime = formatter.string(from: endTime ?? Date())
         return (startDate1, endDate1, courseStartTime ?? "00:00:00", courseEndTime ?? "00:00:00")
     }
-    
-    
-    
-    
     
     func setState(_ courseState : String) {
         self.courseState = courseState
@@ -119,12 +103,9 @@ class Course : NSObject {
     
     func createFullAddress() -> String {
         let fullAddress = "\(self.courseVenueTitle), \(self.courseStreetName) \(self.courseStreetNumber), \(self.courseCity)"
-        
-        
         return fullAddress
     }
 }
-
 
 extension String {
     func index(from: Int) -> Index {
@@ -177,19 +158,8 @@ class Category : NSObject {
     init(id : Int, title : String, colorCode: String) {
         self.id = id
         self.title = title
-        
-        
         self.colorCode = UIColor(hexString : colorCode)
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
     
     func chooseCategory(_ state : Bool) {
      isSelected = state 
